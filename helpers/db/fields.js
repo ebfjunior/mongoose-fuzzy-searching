@@ -41,6 +41,12 @@ class Remove {
   fromObject(item) {
     delete this.schema[`${item.name}_fuzzy`];
   }
+
+  fromObjectKeys(item) {
+    item.keys.forEach((key) => {
+      delete this.schema[`${item.name}_fuzzy.${key}_fuzzy`];
+    });
+  }
 }
 
 class Generate {
